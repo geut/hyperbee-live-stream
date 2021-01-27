@@ -1,16 +1,4 @@
 /**
- * Creates a ReadableStream but keep watching for changes in the range defined.
- * @packageDocumentation
- * @example
- * const stream = new HyperbeeLiveStream(db, { gte: 'a', lte: 'b' })
- * stream.on('data', data => console.log(data))
- * db.put('a')
- * db.put('c')
- * db.put('b')
- * // will print a, b
- */
-
-/**
  * @typedef {Object} Hyperbee
  */
 

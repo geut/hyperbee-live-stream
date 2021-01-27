@@ -9,13 +9,15 @@
 
 ## Install
 
+```
 $ npm install @geut/hyperbee-live-stream
+```
 
 ## Usage
 
-<!-- apiness-usage -->
-
 ```js
+const { HyperbeeLiveStream } = require('@geut/hyperbee-live-stream')
+
 const stream = new HyperbeeLiveStream(db, { gte: 'a', lte: 'b' })
 stream.on('data', data => console.log(data))
 db.put('a')
