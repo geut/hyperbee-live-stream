@@ -1,0 +1,62 @@
+{
+  "name": "@geut/hyperbee-live-stream",
+  "version": "0.0.1",
+  "description": "Hyperbee createReadStream live",
+  "main": "src/index.js",
+  "files": [
+    "lib",
+    "src",
+    "bin",
+    "index.js"
+  ],
+  "scripts": {
+    "start": "node index.js",
+    "test": "jest --passWithNoTests",
+    "posttest": "npm run lint",
+    "lint": "standard",
+    "version": "chan release --allow-yanked ${npm_package_version} && git add .",
+    "prepublishOnly": "npm test"
+  },
+  "dependencies": {
+    "ltgt": "^2.2.1",
+    "streamx": "^2.10.1"
+  },
+  "devDependencies": {
+    "@geut/chan": "^2.0.0",
+    "hyperbee": "^1.5.0",
+    "hypercore": "^9.7.0",
+    "jest": "^24.8.0",
+    "random-access-memory": "^3.1.2",
+    "standard": "^16.0.3"
+  },
+  "jest": {
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ]
+  },
+  "standard": {
+    "env": [
+      "jest",
+      "node",
+      "browser"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geut/hyperbee-live-stream.git"
+  },
+  "keywords": [
+    "hyperbee",
+    "stream",
+    "live"
+  ],
+  "author": {
+    "name": "GEUT",
+    "email": "contact@geutstudio.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/geut/hyperbee-live-stream/issues"
+  },
+  "homepage": "https://github.com/geut/hyperbee-live-stream#readme"
+}
