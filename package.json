@@ -58,5 +58,8 @@
   "bugs": {
     "url": "https://github.com/geut/hyperbee-live-stream/issues"
   },
-  "homepage": "https://github.com/geut/hyperbee-live-stream#readme"
+  "homepage": "https://github.com/geut/hyperbee-live-stream#readme",
+  "publishConfig": {
+    "access": "public"
+  }
 }
