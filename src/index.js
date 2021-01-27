@@ -165,4 +165,4 @@ class HyperbeeLiveStream extends Readable {
   }
 }
 
-module.exports = HyperbeeLiveStream
+module.exports = { HyperbeeLiveStream }

@@ -2,7 +2,7 @@ const hypercore = require('hypercore')
 const Hyperbee = require('hyperbee')
 const ram = require('random-access-memory')
 
-const HyperbeeLiveStream = require('..')
+const { HyperbeeLiveStream } = require('..')
 
 const createDB = (opts = {}) => new Hyperbee(hypercore(ram), opts)
 
