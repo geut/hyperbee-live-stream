@@ -154,3 +154,8 @@ class HyperbeeLiveStream extends Readable {
 }
 
 module.exports = { HyperbeeLiveStream }
+
+/**
+ * Emitted when the stream is synced with the last version in the database
+ * @event HyperbeeLiveStream#synced
+ */

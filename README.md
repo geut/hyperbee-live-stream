@@ -1,4 +1,5 @@
 # hyperbee-live-stream
+
 > Creates a ReadableStream but keep watching for changes in the range defined.
 
 [![Build Status](https://travis-ci.com/geut/hyperbee-live-stream.svg?branch=main)](https://travis-ci.com/geut/hyperbee-live-stream)
@@ -9,9 +10,7 @@
 
 ## Install
 
-```
-$ npm install @geut/hyperbee-live-stream
-```
+    $ npm install @geut/hyperbee-live-stream
 
 ## Usage
 
@@ -28,23 +27,27 @@ db.put('b')
 
 ## API
 
-<!-- apiness-api -->
+<!-- apiness/api -->
 
-#### `hyperbeeLiveStream = new HyperbeeLiveStream(db, [opts])`
+#### `hyperbeeLiveStream = new HyperbeeLiveStream(db, opts?)`
 
 *   `db: Hyperbee`
-*   `opts: Object | null`
-    *   `old: boolean | null = true` Iterate over the old items before start to watching
-    *   `gt: Buffer | String | null` Only return keys > than this
-    *   `gte: Buffer | String | null` Only return keys >= than this
-    *   `lt: Buffer | String | null` Only return keys < than this
-    *   `lte: Buffer | String | null` Only return keys <= than this
-    *   `reverse: boolean | null = false` Set to true to get them in reverse order
-    *   `limit: number | null = -1` Set to the max number of entries you want
+*   `opts?: any = {}`
+    *   `old?: boolean = true` Iterate over the old items before start to watching
+    *   `gt?: Buffer | string` Only return keys > than this
+    *   `gte?: Buffer | string` Only return keys >= than this
+    *   `lt?: Buffer | string` Only return keys < than this
+    *   `lte?: Buffer | string` Only return keys <= than this
+    *   `reverse?: boolean = false` Set to true to get them in reverse order
+    *   `limit?: number = -1` Set to the max number of entries you want
 
 #### `hyperbeeLiveStream.version: number (R)`
 
-Returns the top sequence version processed
+Returns the top version readed
+
+#### `hyperbeeLiveStream.on('synced') => void`
+
+Emitted when the stream is synced with the last version in the database
 
 ## Issues
 
