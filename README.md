@@ -43,13 +43,13 @@ db.put('b')
 
 #### `hyperbeeLiveStream.version: number (R)`
 
-Returns the top version readed
+Returns the last matched version readed
 
 #### `hyperbeeLiveStream.on('synced', version) => void`
 
 Emitted when the stream is synced with the last version in the database
 
-*   `version: number` Last match version readed
+*   `version: number`
 
 ## Issues
 

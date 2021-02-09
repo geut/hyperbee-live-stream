@@ -55,7 +55,7 @@ class HyperbeeLiveStream extends Readable {
   }
 
   /**
-   * Returns the top version readed
+   * Returns the last matched version readed
    * @type {number}
    */
   get version () {
@@ -87,7 +87,7 @@ class HyperbeeLiveStream extends Readable {
     }
 
     if (!this._nextIterator) {
-      this.emit('synced', this._version)
+      this.emit('synced', this._startVersion)
       this._nextIterator = this._db.createHistoryStream({ live: true, gte: this._startVersion })[Symbol.asyncIterator]()
     }
 
@@ -123,9 +123,8 @@ class HyperbeeLiveStream extends Readable {
       return false
     }
 
-    this._version = data.value.seq
-
     if (ltgt.contains(this._range, data.value.key)) {
+      this._version = data.value.seq
       this.push(data.value)
       return false
     }
@@ -155,5 +154,5 @@ module.exports = { HyperbeeLiveStream }
 /**
  * Emitted when the stream is synced with the last version in the database
  * @event HyperbeeLiveStream#synced
- * @param {number} version Last match version readed
+ * @param {number} version
  */
