@@ -31,23 +31,15 @@ db.put('b')
 
 #### `hyperbeeLiveStream = new HyperbeeLiveStream(db, opts?)`
 
-- `db: Hyperbee`
-- `opts?: Object`
-  - `old?: boolean = true` Iterate over the old items before start to watching
-  - `gt?: Buffer | String` Only return keys > than this
-  - `gte?: Buffer | String` Only return keys >= than this
-  - `lt?: Buffer | String` Only return keys < than this
-  - `lte?: Buffer | String` Only return keys <= than this
-  - `reverse?: boolean = false` Set to true to get them in reverse order
-  - `limit?: number = -1` Set to the max number of entries you want
-
-#### `hyperbeeLiveStream.test() => void`
-
-test
-
-```js
-hyper.test()
-```
+*   `db: Hyperbee`
+*   `opts?: any = {}`
+    *   `old?: boolean = true` Iterate over the old items before start to watching
+    *   `gt?: Buffer | string` Only return keys > than this
+    *   `gte?: Buffer | string` Only return keys >= than this
+    *   `lt?: Buffer | string` Only return keys < than this
+    *   `lte?: Buffer | string` Only return keys <= than this
+    *   `reverse?: boolean = false` Set to true to get them in reverse order
+    *   `limit?: number = -1` Set to the max number of entries you want
 
 #### `hyperbeeLiveStream.version: number (R)`
 
@@ -57,7 +49,7 @@ Returns the last matched version readed
 
 Emitted when the stream is synced with the last version in the database
 
-- `version: number` the version
+*   `version: number`
 
 ## Issues
 
