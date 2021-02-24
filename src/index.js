@@ -55,6 +55,15 @@ class HyperbeeLiveStream extends Readable {
   }
 
   /**
+   * test
+   * @example
+   * hyper.test()
+   */
+  test () {
+
+  }
+
+  /**
    * Returns the last matched version readed
    * @type {number}
    */
@@ -154,5 +163,5 @@ module.exports = { HyperbeeLiveStream }
 /**
  * Emitted when the stream is synced with the last version in the database
  * @event HyperbeeLiveStream#synced
- * @param {number} version
+ * @param {number} version the version
  */
