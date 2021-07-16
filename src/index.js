@@ -123,7 +123,7 @@ class HyperbeeLiveStream extends Readable {
       return false
     }
 
-    if (ltgt.contains(this._range, data.value.key)) {
+    if (ltgt.contains(this._range, (this._db.prefix ? this._db.prefix.toString() : '') + data.value.key)) {
       this._version = data.value.seq
       this.push(data.value)
       return false
