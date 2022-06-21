@@ -6,6 +6,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## 1.0.7 - 2022-06-21 [YANKED]
+
 ## 1.0.6 - 2021-07-16 [YANKED]
 
 ## 1.0.5 - 2021-02-24 [YANKED]
@@ -19,4 +21,4 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## 1.0.1 - 2021-01-27 [YANKED]
 
 ## 1.0.0 - 2021-01-27 [YANKED]
-[Unreleased]: https://github.com/geut/hyperbee-live-stream/compare/v1.0.6...HEAD
+[Unreleased]: https://github.com/geut/hyperbee-live-stream/compare/v1.0.7...HEAD
