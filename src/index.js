@@ -50,8 +50,7 @@ class HyperbeeLiveStream extends Readable {
     this._range = encRange(this._db.keyEncoding, { ...this._opts, sub: this._db._sub })
     this._pushOldValue = this._pushOldValue.bind(this)
     this._pushNextValue = this._pushNextValue.bind(this)
-    this._startVersion = -1
-    this._version = -1
+    this._version = 0
   }
 
   /**
@@ -65,7 +64,6 @@ class HyperbeeLiveStream extends Readable {
   _open (cb) {
     this._db.ready()
       .then(() => {
-        this._startVersion = this._db.version
         if (this._old) this._oldIterator = this._db.createReadStream(this._opts)[Symbol.asyncIterator]()
         cb(null)
       })
@@ -87,8 +85,15 @@ class HyperbeeLiveStream extends Readable {
     }
 
     if (!this._nextIterator) {
-      this.emit('synced', this._startVersion)
-      this._nextIterator = this._db.createHistoryStream({ live: true, gte: this._startVersion })[Symbol.asyncIterator]()
+      let startVersion = this._version
+      if (this._version === 0) {
+        startVersion = this._version = this._db.version
+      } else if (this._old) {
+        startVersion++
+      }
+
+      this.emit('synced', this._version)
+      this._nextIterator = this._db.createHistoryStream({ live: true, gte: startVersion })[Symbol.asyncIterator]()
     }
 
     return this._nextIterator.next()
@@ -107,10 +112,9 @@ class HyperbeeLiveStream extends Readable {
     if (data.done) {
       this._oldIterator = null
     } else {
-      if (data.value.seq >= this._startVersion) {
-        this._startVersion = data.value.seq + 1
+      if (data.value.seq > this._version) {
+        this._version = data.value.seq
       }
-      this._version = data.value.seq
       this.push(data.value)
     }
 
